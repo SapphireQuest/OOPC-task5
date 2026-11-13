@@ -38,7 +38,7 @@ int main()
 	displayNonConst(p2);
 	displayConst(p2);
 
-	test(p1, p2);
+	// test(p1, p2);
 }
 
 // Code is duplicated in the following two functions. This could be refactored
@@ -65,7 +65,7 @@ void displayConst(const Poly& p)
 		cout << "\tCoefficient " << i << ": " << p[i] << endl;
 	}
 }
-
+/*
 void test(const Poly& p1, const Poly& p2)
 {
 	testAddition(p1, p2);
@@ -117,3 +117,4 @@ void testValue(const Poly& p1, const Poly& p2)
 	cout << "Value of polynomial p1 at point  3.9: " << p1(3.9) << endl;
 	cout << "Value of polynomial p2 at point -2.8: " << p2(-2.8) << endl;
 }
+*/
