@@ -16,6 +16,9 @@ class Poly
         double operator[](int index) const;
         friend std::ostream& operator<<(std::ostream& os, const Poly& p);
         Poly& operator+=(const Poly& p); 
+        Poly& operator-=(const Poly& p); 
 };
 
 Poly operator+(const Poly& p1, const Poly& p2);
+Poly operator-(const Poly& p1, const Poly& p2);
+Poly operator-(const Poly& p);

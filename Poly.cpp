@@ -70,6 +70,31 @@ Poly operator+(const Poly& p1, const Poly& p2)
 }
 
 
+Poly& Poly::operator-=(const Poly& p)
+{
+    for(const auto &c : p.coeffs)
+    {
+        int power = c.first;
+        double coefficient = c.second;
+        this->coeffs[power] -= coefficient;
+    }
+    erase_helper();
+    return *this;
+}
+
+Poly operator-(const Poly& p1, const Poly& p2)
+{
+    Poly n(p1);
+    return n -= p2; 
+}
+
+Poly operator-(const Poly& p)
+{
+    Poly n(p);
+    return 0-n;
+}
+
+
 
 std::ostream& operator<<(std::ostream& os, const Poly& p)
 {
