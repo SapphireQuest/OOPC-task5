@@ -17,6 +17,25 @@ Poly::Poly(double value)
     coeffs[0] = value;
 }
 
+
+void Poly::erase_helper()
+{
+    auto i = this->coeffs.begin();
+    while(i != this->coeffs.end())
+    {
+        double coefficient = i->second;
+        if(coefficient == 0.0)
+        {
+            i = this->coeffs.erase(i);
+        }
+        else
+        {
+            i++;
+        }
+    }
+}
+
+
 double& Poly::operator[](int index)
 {
     return coeffs[index];
@@ -32,14 +51,30 @@ double Poly::operator[](int index) const
     return 0.0;
 }
 
+Poly& Poly::operator+=(const Poly& p)
+{
+    for(const auto &c : p.coeffs)
+    {
+        int power = c.first;
+        double coefficient = c.second;
+        this->coeffs[power] += coefficient;
+    }
+    erase_helper();
+    return *this;
+}
 
+Poly operator+(const Poly& p1, const Poly& p2)
+{
+    Poly n(p1);
+    return n += p2; 
+}
 
 
 
 std::ostream& operator<<(std::ostream& os, const Poly& p)
 {
     bool first = true;
-    for(auto c : p.coeffs)
+    for(const auto &c : p.coeffs)
     {
         int power = c.first;
         double coefficient = c.second;

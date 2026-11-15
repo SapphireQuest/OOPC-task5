@@ -7,7 +7,7 @@ class Poly
 {
     private:
         std::map<int,double,std::greater<int>> coeffs;
-
+        void erase_helper();
     public:
         Poly();
         Poly(double value);
@@ -15,4 +15,7 @@ class Poly
         double& operator[](int index);
         double operator[](int index) const;
         friend std::ostream& operator<<(std::ostream& os, const Poly& p);
+        Poly& operator+=(const Poly& p); 
 };
+
+Poly operator+(const Poly& p1, const Poly& p2);
