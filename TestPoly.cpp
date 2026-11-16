@@ -70,8 +70,8 @@ void test(const Poly& p1, const Poly& p2)
 {
 	testAddition(p1, p2);
 	testSubtraction(p1, p2);
-	// testMultiplication(p1, p2);
-	// testValue(p1, p2);
+	testMultiplication(p1, p2);
+	testValue(p1, p2);
 }
 
 void testAddition(const Poly& p1, const Poly& p2)
@@ -104,7 +104,8 @@ void testSubtraction(const Poly& p1, const Poly& p2)
 	cout << "Difference of polynomial p1 and 5.3: " << p1 - 5.3 << endl;
 	cout << "Difference of 5.3 and polynomial p1: " << 5.3 - p1 << endl;
 }
-/*
+
+
 void testMultiplication(const Poly& p1, const Poly& p2)
 {
 	cout << "\n======= Multiplication =======" << endl;
@@ -121,4 +122,3 @@ void testValue(const Poly& p1, const Poly& p2)
 	cout << "Value of polynomial p1 at point  3.9: " << p1(3.9) << endl;
 	cout << "Value of polynomial p2 at point -2.8: " << p2(-2.8) << endl;
 }
-*/
